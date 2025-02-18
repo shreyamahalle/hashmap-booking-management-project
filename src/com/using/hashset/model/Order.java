@@ -1,5 +1,7 @@
 package com.using.hashset.model;
 
+import java.util.Objects;
+
 public class Order {
     private int id;
     private String type;
@@ -46,5 +48,17 @@ public class Order {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id == order.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

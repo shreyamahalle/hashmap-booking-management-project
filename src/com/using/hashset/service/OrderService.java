@@ -1,13 +1,12 @@
 package com.using.hashset.service;
+import com.using.hashset.model.DeliveryAgent;
 import com.using.hashset.model.Order;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class OrderService {
 
-    private HashSet<Order> orders = new HashSet<>();
+    private HashMap<Integer,Order> orders = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
 
     void printCustomer(Order o){
@@ -33,12 +32,14 @@ public class OrderService {
             o.setPaymentMethod(paymentMethod);
             o.setNote(note);
             o.setType(type);
-            orders.add(o);
+            orders.put(1,o);
             return o;
         }
     public void displayCustomers(){
-        for(Order o : orders){
-            System.out.println("Customer Info: " + o);
+        Set<Map.Entry<Integer, Order>> entrySet = orders.entrySet();
+        for(Map.Entry<Integer,Order>customerEntry : entrySet){
+            System.out.println("Customer Info: " + orders );
         }
+
     }
 }

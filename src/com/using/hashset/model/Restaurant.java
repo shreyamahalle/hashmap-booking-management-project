@@ -1,5 +1,7 @@
 package com.using.hashset.model;
 
+import java.util.Objects;
+
 public class Restaurant {
     private int registerNo;
     private String name;
@@ -46,5 +48,17 @@ public class Restaurant {
 
     public void setArea(String area) {
         Area = area;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Restaurant that = (Restaurant) o;
+        return registerNo == that.registerNo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(registerNo);
     }
 }

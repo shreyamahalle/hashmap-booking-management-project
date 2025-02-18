@@ -1,13 +1,12 @@
 package com.using.hashset.service;
 
+import com.using.hashset.model.Order;
 import com.using.hashset.model.Restaurant;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class RestaurantService {
-    private HashSet<Restaurant> restaurants = new HashSet<>();
+    private HashMap<Integer,Restaurant> restaurants = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
 
     void printCustomer(Restaurant r){
@@ -34,12 +33,13 @@ public class RestaurantService {
             r.setName(name);
             r.setCity(city);
             r.setArea(area);
-            restaurants.add(r);
+            restaurants.put(1,r);
             return r;
         }
     public void displayRestaurant(){
-        for(Restaurant r : restaurants){
-            System.out.println("Customer Info: " + r);
+        Set<Map.Entry<Integer, Restaurant>> entrySet = restaurants.entrySet();
+        for(Map.Entry<Integer,Restaurant>customerEntry : entrySet){
+            System.out.println("Customer Info: " + restaurants );
         }
     }
 }

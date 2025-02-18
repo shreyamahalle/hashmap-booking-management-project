@@ -1,16 +1,14 @@
 package com.using.hashset.service;
 import com.using.hashset.model.Customer;
 
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
+
 public class CustomerService {
 
-
-    private HashSet<Customer> customers = new HashSet<>();
+    private static Map<Integer ,Customer> customers = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
 
     void printCustomer(Customer customer){
-
         System.out.println(customer);
     }
 
@@ -36,12 +34,13 @@ public class CustomerService {
         customer.setCity(city);
         customer.setName(name);
         customer.setMobileNo(mobileNo);
-        customers.add(customer);
+        customers.put(1,customer);
         return customer;
     }
     public void displayCustomers(){
-        for(Customer customer : customers){
-            System.out.println("Customer Info: " + customer);
+        Set<Map.Entry<Integer,Customer>> entrySet = customers.entrySet();
+        for(Map.Entry<Integer,Customer>customerEntry : entrySet){
+            System.out.println("Customer Info: " + customers );
         }
     }
     }

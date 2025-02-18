@@ -1,5 +1,7 @@
 package com.using.hashset.model;
 
+import java.util.Objects;
+
 public class DeliveryAgent {
     private int id;
     private String name;
@@ -46,5 +48,17 @@ public class DeliveryAgent {
 
     public void setMobileNo(int mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        DeliveryAgent that = (DeliveryAgent) o;
+        return id == that.id && mobileNo == that.mobileNo && Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, mobileNo);
     }
 }

@@ -1,12 +1,11 @@
 package com.using.hashset.service;
+import com.using.hashset.model.Customer;
 import com.using.hashset.model.DeliveryAgent;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class DeliveryAgentService {
-    private HashSet<DeliveryAgent> deliveryAgents = new HashSet<>();
+    private static Map<Integer , DeliveryAgent> deliveryAgents = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
 
     void printCustomer(DeliveryAgent deliveryAgent){
@@ -32,14 +31,18 @@ public class DeliveryAgentService {
         deliveryAgent.setName(name);
         deliveryAgent.setCity(city);
         deliveryAgent.setMobileNo(mobileNo);
-        deliveryAgents.add(deliveryAgent);
+        deliveryAgents.put(1,deliveryAgent);
         return deliveryAgent;
     }
 
     public void displayDeliveryAgent(){
-        for(DeliveryAgent deliveryAgent : deliveryAgents){
-            System.out.println("Customer Info: " + deliveryAgent);
+        Set<Map.Entry<Integer,DeliveryAgent>> entrySet = deliveryAgents.entrySet();
+        for(Map.Entry<Integer,DeliveryAgent>customerEntry : entrySet){
+            System.out.println("Customer Info: " + deliveryAgents );
         }
+//        for(DeliveryAgent deliveryAgent : deliveryAgents){
+//            System.out.println("Customer Info: " + deliveryAgent);
+//        }
     }
 }
 
