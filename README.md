@@ -50,9 +50,12 @@ The Core Java hashmap Booking Management Project is a basic Java application tha
 3. **Order**
 4. **Restaurant**
 
-## **POJO (Plain Old Java Objects)**
+## **📝 Database Schema (POJO Classes)**
+| **Entity**          | **Attributes** |
+|---------------------|----------------------------------------------------------|
+| **Customer**           | user id, name, username,monbileNo,city,area |
+| **DeliveryAgent**          | id, name, city, mobileNo |
+| **Order**         | id, name, city, mobileNo |
+| **Restaurant**        |registerNo, name, City, Area |
 
--Customer - (user id, name, username,monbileNo,city,area)
-
-
-
+---
